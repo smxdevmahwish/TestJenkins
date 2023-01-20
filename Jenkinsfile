@@ -27,7 +27,7 @@ pipeline {
       
       steps {
         bat 'echo "deploy"'
-        bat 'echo "good:'
+        bat 'echo "good:"'
       }
     }
     stage('deploy production') {

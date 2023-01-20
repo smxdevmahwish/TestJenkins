@@ -41,10 +41,11 @@ pipeline {
           }
       }
     
-      post {
-          always {
-              archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
-          }
+      
+  }
+  post {
+      always {
+          archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
       }
   }
 }

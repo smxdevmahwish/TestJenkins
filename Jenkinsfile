@@ -18,6 +18,11 @@ pipeline {
         bat 'echo "deploy"'
       }
     }
+    stage('deploy production') {
+      steps {
+        bat 'echo "deploy"'
+      }
+    }
 stage('Branch indexing: abort') {
             when {
                 allOf {

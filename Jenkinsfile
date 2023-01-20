@@ -11,6 +11,12 @@ pipeline {
       steps {
         bat 'echo build'
       }
+      
+      post {
+          always {
+              archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
+          }
+      }
     }
 
     stage('deploy') {
@@ -42,10 +48,5 @@ pipeline {
       }
     
       
-  }
-  post {
-      always {
-          archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
-      }
   }
 }

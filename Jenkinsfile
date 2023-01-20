@@ -23,22 +23,28 @@ pipeline {
         bat 'echo "deploy"'
       }
     }
-stage('Branch indexing: abort') {
-            when {
-                allOf {
-                    triggeredBy cause: "BranchIndexingCause"
-                    not { 
-                        changeRequest() 
-                    }
-                }
-            }
-            steps {
-                script {
-                    echo "Branch discovered by branch indexing"
-                    currentBuild.result = 'SUCCESS' 
-                    error "Caught branch indexing..."
-                }
-            }
-        }
+    stage('Branch indexing: abort') {
+          when {
+              allOf {
+                  triggeredBy cause: "BranchIndexingCause"
+                  not { 
+                      changeRequest() 
+                  }
+              }
+          }
+          steps {
+              script {
+                  echo "Branch discovered by branch indexing"
+                  currentBuild.result = 'SUCCESS' 
+                  error "Caught branch indexing..."
+              }
+          }
+      }
+    
+      post {
+          always {
+              archiveArtifacts artifacts: '**/', onlyIfSuccessful: true
+          }
+      }
   }
 }

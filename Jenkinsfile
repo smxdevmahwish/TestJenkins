@@ -14,7 +14,11 @@ pipeline {
       
       post {
           always {
-              archiveArtifacts artifacts: '**/*', onlyIfSuccessful: true
+              archiveArtifacts artifacts: '**/*.txt',
+                   allowEmptyArchive: true,
+                   fingerprint: true,
+                   onlyIfSuccessful: true
+
           }
       }
     }

@@ -28,8 +28,9 @@ pipeline {
       steps {
         bat 'echo "deploy"'
         bat 'echo "good:"'
-      }
       sshPublisher(publishers: [sshPublisherDesc(configName: 'MyWindows', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: 'public', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '**/*')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+      }
+      
     }
     stage('deploy production') {
       steps {

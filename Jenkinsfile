@@ -35,7 +35,7 @@ pipeline {
           failOnError: true,
           publishers: [
             sshPublisherDesc(
-              configName: 'MyWindows', 
+              configName: 'Mahwish', 
               transfers: [
                 sshTransfer(
                   cleanRemote: false, 

@@ -60,6 +60,9 @@ pipeline {
       
     }
     stage('deploy production') {
+      when {
+        false
+      }
       steps {
         bat 'echo "deploy"'
       }

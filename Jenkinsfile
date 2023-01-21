@@ -60,12 +60,29 @@ pipeline {
       
     }
     stage('deploy production') {
-       when {
-        expression { false }
-      }
-      steps {
-        bat 'echo "deploy"'
-      }
+       
+      script {
+            // Define Variable
+             def USER_INPUT = input(
+                    message: 'Do you want to deployin production - Yes or No?',
+                    parameters: [
+                            [$class: 'ChoiceParameterDefinition',
+                             choices: ['no','yes'].join('\n'),
+                             name: 'input',
+                             description: 'Menu - select box option']
+                    ])
+
+            echo "The answer is: ${USER_INPUT}"
+
+            if( "${USER_INPUT}" == "yes"){
+                steps {
+                  bat 'echo "deploy"'
+                }
+            } else {
+                //do something else
+            }
+        }
+
     }
     stage('Branch indexing: abort') {
           when {

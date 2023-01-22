@@ -59,6 +59,18 @@ pipeline {
       }
       
     }
+    stage('deploy toproduction') {
+      
+        steps {
+                input(
+                    message: "Are you sure you weant to deployit in production , Yes or No?",
+                    ok: "Yes",
+                    submitter: "ssbostan"
+                )
+                echo "Deployment stage."
+            }
+      
+    }
    
     stage('Branch indexing: abort') {
           when {

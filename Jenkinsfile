@@ -92,6 +92,11 @@ pipeline {
     
       
   }
+  stage('Checkout') {
+            steps {
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/MehwishUmer/TestJenkins.git']]])
+            }
+        }
   repoOwner('MahwishUmer')
 repository('main')
 }

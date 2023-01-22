@@ -59,11 +59,7 @@ pipeline {
       }
       
     }
-    stage('deploy production') {
-       
-      script {
-      }
-    }
+   
     stage('Branch indexing: abort') {
           when {
               allOf {

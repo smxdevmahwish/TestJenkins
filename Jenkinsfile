@@ -92,4 +92,6 @@ pipeline {
     
       
   }
+  repoOwner('MahwishUmer')
+repository('main')
 }

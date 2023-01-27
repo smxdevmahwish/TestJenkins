@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        bat 'echo "Test Local"'
+        bat 'echo "Test Local Test"'
       }
     }
 
